@@ -1,8 +1,13 @@
+import { Container } from "@mui/material";
 import getRateCurrency from "./API/PostService";
+import Header from "./components/Header/Header";
 
 function App() {
-  console.log(getRateCurrency());
-  return <div className="App">It is working</div>;
+  return (
+    <Container maxWidth="lg" className="App">
+      <Header />
+    </Container>
+  );
 }
 
 export default App;
