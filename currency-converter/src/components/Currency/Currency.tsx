@@ -1,28 +1,23 @@
-import { Typography, TextField, Box } from "@mui/material";
-import { useState, useEffect } from "react";
-import { getAllCurrencies } from "../../API/PostService";
-import useFetching from "../../hooks/useFetching";
+import { Typography, Box, TextField } from "@mui/material";
+import { useState } from "react";
 import AllCurrencies from "../../types/types";
 import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
-import styles from "./BaseCurrency.module.scss";
+import styles from "./Currency.module.scss";
 
-function BaseCurrency() {
-  const [currencies, setCurrencies] = useState({} as AllCurrencies);
-  const [chooseCurrency, setChooseCurrency] = useState("usd");
-  const [fetchCurrencies, isComLoading] = useFetching(async () => {
-    const response = await getAllCurrencies();
-    setCurrencies(response.data);
-  });
+function Currency(props: {
+  currencies: AllCurrencies;
+  typeCurrency: string;
+  isBaseCurrency?: boolean;
+}) {
+  const { currencies, typeCurrency, isBaseCurrency } = props;
+  const [chooseCurrency, setChooseCurrency] = useState(typeCurrency);
   const [amountMoney, setAmountMoney] = useState(0);
-
-  useEffect(() => {
-    fetchCurrencies();
-  }, []);
-  console.log(amountMoney);
   return (
     <>
       <Typography variant="h6" component="h1" className={styles.text}>
-        Base currency: {currencies[chooseCurrency]}
+        {isBaseCurrency
+          ? `Base currency: ${currencies[chooseCurrency]}`
+          : currencies[chooseCurrency]}
       </Typography>
       <Box className={styles.wrapperInpCurrency}>
         <SelectCurrencyList
@@ -49,4 +44,8 @@ function BaseCurrency() {
   );
 }
 
-export default BaseCurrency;
+Currency.defaultProps = {
+  isBaseCurrency: false,
+};
+
+export default Currency;

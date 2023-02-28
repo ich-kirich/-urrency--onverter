@@ -18,10 +18,10 @@ function Header() {
           </Typography>
           <Box maxWidth="sm" className={styles.wrapperNavBtns}>
             <Link href="#123" variant="body1" className={styles.navBtns}>
-              Convert Currency
+              Exchange rates
             </Link>
             <Link href="#123" variant="body1" className={styles.navBtns}>
-              Exchange rates
+              Convert Currency
             </Link>
           </Box>
         </Toolbar>
