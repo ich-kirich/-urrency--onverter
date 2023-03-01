@@ -1,10 +1,15 @@
 import { Typography, Box, TextField } from "@mui/material";
 import { useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
+import CloseIcon from "@mui/icons-material/Close";
 import { AllCurrencies, ICurrency } from "../../types/types";
 import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
 import styles from "./Currency.module.scss";
-import { changePropertyCurrency, favouriteProperty } from "../../utils/utils";
+import {
+  changePropertyCurrency,
+  favouriteProperty,
+  saveCurrencies,
+} from "../../utils/utils";
 
 function Currency(props: {
   currencies: AllCurrencies;
@@ -23,6 +28,14 @@ function Currency(props: {
       setListCurrencies,
     );
   };
+
+  const deleteCurrency = () => {
+    const newListCurrency = [...listCurrencies].filter(
+      (elem) => elem.shortName !== currency.shortName,
+    );
+    saveCurrencies(setListCurrencies, newListCurrency);
+  };
+
   return (
     <>
       <Typography variant="h6" component="h1" className={styles.text}>
@@ -55,6 +68,7 @@ function Currency(props: {
           }
           className={styles.inputCurrency}
         />
+        <CloseIcon className={styles.deleteCurrency} onClick={deleteCurrency} />
       </Box>
     </>
   );

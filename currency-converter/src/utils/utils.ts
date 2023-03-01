@@ -41,3 +41,18 @@ export function saveBaseCurrency(
   baseCurrency.shortName = value as string;
   setBaseCurrency({ ...baseCurrency });
 }
+
+export function saveCurrencyToList(
+  listCurrencies: ICurrency[],
+  setListCurrencies: Function,
+  nameCurrency: string,
+) {
+  listCurrencies = [
+    ...listCurrencies,
+    {
+      shortName: nameCurrency,
+      favourite: false,
+    },
+  ];
+  saveCurrencies(setListCurrencies, listCurrencies);
+}

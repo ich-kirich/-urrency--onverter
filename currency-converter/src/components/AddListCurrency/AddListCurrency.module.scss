@@ -1,0 +1,9 @@
+.nameCurrency {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #808080;
+    transition: 0.5s;
+    &:hover {
+        color: #000;
+    }
+}

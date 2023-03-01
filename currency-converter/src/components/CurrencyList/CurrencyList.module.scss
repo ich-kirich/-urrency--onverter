@@ -7,3 +7,21 @@
     padding: 20px;
     margin-top: 20px;
 }
+
+.wrapperAddCurrency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.addCurrency {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    transition: 1s;
+    cursor: pointer;
+    &:hover {
+        color: #000;
+    }
+}

@@ -40,7 +40,17 @@ function SelectCurrencyList(props: {
       }
     >
       {Object.keys(currencies).map((elem) => (
-        <option key={elem} value={elem}>
+        <option
+          key={elem}
+          value={elem}
+          disabled={
+            Array.isArray(currenciesValue)
+              ? (currenciesValue as ICurrency[]).some(
+                  (currency) => currency.shortName === elem,
+                )
+              : (currenciesValue as ICurrency).shortName === elem
+          }
+        >
           {elem}
         </option>
       ))}
