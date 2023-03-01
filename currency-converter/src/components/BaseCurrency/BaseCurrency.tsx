@@ -1,45 +1,27 @@
 import { Typography, Box, TextField } from "@mui/material";
 import { useState } from "react";
-import StarIcon from "@mui/icons-material/Star";
 import { AllCurrencies, ICurrency } from "../../types/types";
 import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
-import styles from "./Currency.module.scss";
-import { changePropertyCurrency, favouriteProperty } from "../../utils/utils";
+import styles from "./BaseCurrency.module.scss";
 
-function Currency(props: {
+function BaseCurrency(props: {
   currencies: AllCurrencies;
-  currency: ICurrency;
-  listCurrencies: ICurrency[];
-  setListCurrencies: Function;
+  baseCurrency: ICurrency;
+  setBaseCurrency: Function;
 }) {
-  const { currencies, currency, listCurrencies, setListCurrencies } = props;
+  const { currencies, baseCurrency, setBaseCurrency } = props;
   const [amountMoney, setAmountMoney] = useState(0);
-
-  const updateListCurrency = () => {
-    changePropertyCurrency(
-      listCurrencies,
-      favouriteProperty,
-      currency.shortName,
-      setListCurrencies,
-    );
-  };
   return (
     <>
       <Typography variant="h6" component="h1" className={styles.text}>
-        {currencies[currency.shortName]}
+        Base currency: {currencies[baseCurrency.shortName]}
       </Typography>
       <Box className={styles.wrapperInpCurrency}>
-        <StarIcon
-          className={
-            currency.favourite ? styles.isFavorite : styles.notFavorite
-          }
-          onClick={updateListCurrency}
-        />
         <SelectCurrencyList
           currencies={currencies}
-          chooseCurrency={currency.shortName}
-          currenciesValue={listCurrencies}
-          setCurrencies={setListCurrencies}
+          chooseCurrency={baseCurrency.shortName}
+          currenciesValue={baseCurrency}
+          setCurrencies={setBaseCurrency}
         />
         <TextField
           id="currecny"
@@ -60,4 +42,4 @@ function Currency(props: {
   );
 }
 
-export default Currency;
+export default BaseCurrency;

@@ -1,3 +1,6 @@
-type AllCurrencies = Record<string, string>;
+export type AllCurrencies = Record<string, string>;
 
-export default AllCurrencies;
+export interface ICurrency {
+  shortName: string;
+  favourite: boolean;
+}

@@ -1,20 +1,43 @@
 import { NativeSelect } from "@mui/material";
-import AllCurrencies from "../../types/types";
+import { AllCurrencies, ICurrency } from "../../types/types";
+import {
+  changePropertyCurrency,
+  saveBaseCurrency,
+  shortNameProperty,
+} from "../../utils/utils";
 import styles from "./SelectCurrencyList.module.scss";
 
 function SelectCurrencyList(props: {
   currencies: AllCurrencies;
   chooseCurrency: string;
-  setChooseCurrency: Function;
+  setCurrencies: Function;
+  currenciesValue: ICurrency | ICurrency[];
 }) {
-  const { currencies } = props;
-  const { chooseCurrency } = props;
-  const { setChooseCurrency } = props;
+  const { currencies, chooseCurrency, currenciesValue, setCurrencies } = props;
+
+  const updateListCurrency = (value: string, shortName: string) => {
+    changePropertyCurrency(
+      currenciesValue as ICurrency[],
+      shortNameProperty,
+      shortName,
+      setCurrencies,
+      value,
+    );
+  };
+
+  const updateBaseCurrency = (value: string) => {
+    saveBaseCurrency(setCurrencies, value, currenciesValue as ICurrency);
+  };
+
   return (
     <NativeSelect
       value={chooseCurrency}
       className={styles.selectCurrency}
-      onChange={(e) => setChooseCurrency(e.target.value)}
+      onChange={
+        !Array.isArray(currenciesValue)
+          ? (e) => updateBaseCurrency(e.target.value)
+          : (e) => updateListCurrency(e.target.value, chooseCurrency)
+      }
     >
       {Object.keys(currencies).map((elem) => (
         <option key={elem} value={elem}>

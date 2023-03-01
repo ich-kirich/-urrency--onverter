@@ -1,3 +1,9 @@
+%favorite {
+    align-self: center;
+    transition: 1s;
+    cursor: pointer;
+}
+
 .text {
     color: #fff;
 }
@@ -9,4 +15,20 @@
 
 .inputCurrency {
     background-color: #fff;
+}
+
+.isFavorite {
+    @extend %favorite;
+    color: #FFFF00;
+    &:hover {
+        color: rgba(75, 79, 79, 0.5);
+    }
+}
+
+.notFavorite {
+    @extend %favorite;
+    color: rgba(75, 79, 79, 0.5);
+    &:hover {
+        color: #FFFF00;
+    }
 }
