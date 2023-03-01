@@ -11,8 +11,7 @@ function BaseCurrency(props: {
   setBaseCurrency: Function;
 }) {
   const { baseCurrency, setBaseCurrency } = props;
-  const { currenciesAllNames } = useContext(Context);
-  const [amountMoney, setAmountMoney] = useState(0);
+  const { currenciesAllNames, amount, setMoney } = useContext(Context);
   return (
     <>
       <NameCurrency>
@@ -20,9 +19,10 @@ function BaseCurrency(props: {
       </NameCurrency>
       <Box className={styles.wrapperInpCurrency}>
         <SelectInputCurrency
-          setAmountMoney={setAmountMoney}
+          setAmountMoney={setMoney}
           currencyValue={baseCurrency}
           setCurrencyValue={setBaseCurrency}
+          amountMoney={amount}
         />
       </Box>
     </>
