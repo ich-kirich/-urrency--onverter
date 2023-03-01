@@ -4,3 +4,7 @@ export interface ICurrency {
   shortName: string;
   favourite: boolean;
 }
+
+export interface IContextCurrency {
+  currenciesAllNames: AllCurrencies;
+}

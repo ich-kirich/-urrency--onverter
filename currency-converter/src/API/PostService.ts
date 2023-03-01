@@ -7,7 +7,7 @@ export async function getRateCurrency(currency = "usd") {
   return response;
 }
 
-export async function getAllCurrencies(currency = "usd") {
+export async function getAllCurrencies() {
   const response = await axios.get(
     `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json`,
   );

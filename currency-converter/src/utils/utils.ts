@@ -1,7 +1,30 @@
-import { ICurrency } from "../types/types";
+import React from "react";
+import { IContextCurrency, ICurrency } from "../types/types";
 
 export const shortNameProperty = "shortName";
 export const favouriteProperty = "favourite";
+
+export const defaultCurrencyList = [
+  {
+    shortName: "egp",
+    favourite: false,
+  },
+  {
+    shortName: "eur",
+    favourite: false,
+  },
+  {
+    shortName: "amd",
+    favourite: false,
+  },
+];
+
+export const defaultBaseCurrency = {
+  shortName: "usd",
+  favourite: false,
+};
+
+export const Context = React.createContext({} as IContextCurrency);
 
 export function saveCurrencies(
   setListCurrencies: Function,

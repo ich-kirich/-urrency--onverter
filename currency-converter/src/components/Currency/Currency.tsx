@@ -1,23 +1,25 @@
-import { Typography, Box, TextField } from "@mui/material";
-import { useState } from "react";
+import { Box } from "@mui/material";
+import { useContext, useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
-import { AllCurrencies, ICurrency } from "../../types/types";
-import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
+import { ICurrency } from "../../types/types";
 import styles from "./Currency.module.scss";
 import {
   changePropertyCurrency,
+  Context,
   favouriteProperty,
   saveCurrencies,
 } from "../../utils/utils";
+import SelectInputCurrency from "../SelectInputCurrency/SelectInputCurrency";
+import NameCurrency from "../NameCurrency/NameCurrency";
 
 function Currency(props: {
-  currencies: AllCurrencies;
   currency: ICurrency;
   listCurrencies: ICurrency[];
   setListCurrencies: Function;
 }) {
-  const { currencies, currency, listCurrencies, setListCurrencies } = props;
+  const { currency, listCurrencies, setListCurrencies } = props;
+  const { currenciesAllNames } = useContext(Context);
   const [amountMoney, setAmountMoney] = useState(0);
 
   const updateListCurrency = () => {
@@ -38,9 +40,7 @@ function Currency(props: {
 
   return (
     <>
-      <Typography variant="h6" component="h1" className={styles.text}>
-        {currencies[currency.shortName]}
-      </Typography>
+      <NameCurrency>{currenciesAllNames[currency.shortName]}</NameCurrency>
       <Box className={styles.wrapperInpCurrency}>
         <StarIcon
           className={
@@ -48,25 +48,11 @@ function Currency(props: {
           }
           onClick={updateListCurrency}
         />
-        <SelectCurrencyList
-          currencies={currencies}
-          chooseCurrency={currency.shortName}
-          currenciesValue={listCurrencies}
-          setCurrencies={setListCurrencies}
-        />
-        <TextField
-          id="currecny"
-          label="Enter a number"
-          variant="filled"
-          size="medium"
-          type="number"
-          fullWidth
-          onChange={(e) =>
-            Number(e.target.value) < 0
-              ? setAmountMoney(0)
-              : setAmountMoney(Number(e.target.value))
-          }
-          className={styles.inputCurrency}
+        <SelectInputCurrency
+          setAmountMoney={setAmountMoney}
+          currencyValue={listCurrencies}
+          setCurrencyValue={setListCurrencies}
+          currency={currency}
         />
         <CloseIcon className={styles.deleteCurrency} onClick={deleteCurrency} />
       </Box>

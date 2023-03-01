@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React, { useEffect, useRef } from "react";
-import classes from "./ModalComponent.module.scss";
+import styles from "./ModalComponent.module.scss";
 
 function ModalComponent(props: {
   children: React.ReactNode;
@@ -8,9 +8,9 @@ function ModalComponent(props: {
   setVisible: Function;
 }) {
   const { children, visible, setVisible } = props;
-  const rootClasses = [classes.myModal];
+  const rootClasses = [styles.myModal];
   if (visible) {
-    rootClasses.push(classes.active);
+    rootClasses.push(styles.active);
   }
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -22,7 +22,7 @@ function ModalComponent(props: {
 
   return (
     <Box className={rootClasses.join(" ")}>
-      <Box className={classes.myModalContent} ref={box}>
+      <Box className={styles.myModalContent} ref={box}>
         {children}
       </Box>
     </Box>

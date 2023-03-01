@@ -3,39 +3,31 @@
     cursor: pointer;
 }
 
-.text {
-    color: #fff;
-}
-
 .wrapperInpCurrency {
     display: flex;
     gap: 5px;
-}
 
-.inputCurrency {
-    background-color: #fff;
-}
-
-.isFavorite {
-    @extend %controlBtnsCurrency;
-    color: #FFFF00;
-    &:hover {
-        color: rgba(75, 79, 79, 0.5);
-    }
-}
-
-.notFavorite {
-    @extend %controlBtnsCurrency;
-    color: rgba(75, 79, 79, 0.5);
-    &:hover {
+    .isFavorite {
+        @extend %controlBtnsCurrency;
         color: #FFFF00;
+        &:hover {
+            color: rgba(75, 79, 79, 0.5);
+        }
     }
-}
+    
+    .notFavorite {
+        @extend %controlBtnsCurrency;
+        color: rgba(75, 79, 79, 0.5);
+        &:hover {
+            color: #FFFF00;
+        }
+    }
 
-.deleteCurrency {
-    @extend %controlBtnsCurrency;
-    color: rgba(75, 79, 79, 0.5);
-    &:hover {
-        color: rgb(0, 0, 0);
+    .deleteCurrency {
+        @extend %controlBtnsCurrency;
+        color: rgba(75, 79, 79, 0.5);
+        &:hover {
+            color: rgb(0, 0, 0);
+        }
     }
 }
