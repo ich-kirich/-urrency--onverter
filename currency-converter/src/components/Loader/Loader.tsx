@@ -1,7 +1,11 @@
-import classes from "./Loader.module.scss";
+import styles from "./Loader.module.scss";
 
 function Loader() {
-  return <div className={classes.loader} />;
+  return (
+    <div className={styles.wrapperLoader}>
+      <div className={styles.loader} />
+    </div>
+  );
 }
 
 export default Loader;

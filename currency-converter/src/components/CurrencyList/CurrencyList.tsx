@@ -66,9 +66,7 @@ function CurrencyList() {
       ) : (
         <Box>
           {isCurrLoading || isAllCurrLoading ? (
-            <div className={styles.wrapperLoader}>
-              <Loader />
-            </div>
+            <Loader />
           ) : (
             <Box className={styles.currencyList}>
               <BaseCurrency
@@ -88,7 +86,7 @@ function CurrencyList() {
                               currency.shortName
                             ],
                         )
-                      : String(Number(amountMoney) * 1.5)
+                      : ""
                   }
                   listCurrencies={sortedListCurrencies}
                   setListCurrencies={setListCurrencies}

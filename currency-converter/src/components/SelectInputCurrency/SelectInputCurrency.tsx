@@ -1,7 +1,6 @@
 import { Box, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { ICurrency } from "../../types/types";
-import NameCurrency from "../NameCurrency/NameCurrency";
 import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
 import styles from "./SelectInputCurrency.module.scss";
 
@@ -19,7 +18,7 @@ function SelectInputCurrency(props: {
     currency,
     amountMoney,
   } = props;
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(amountMoney);
   return (
     <>
       <SelectCurrencyList

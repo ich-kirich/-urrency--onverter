@@ -10,11 +10,13 @@ function AddListCurrency(props: {
 }) {
   const { listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames } = useContext(Context);
+
   function addToList(elem: string) {
     saveCurrencyToList(listCurrencies, setListCurrencies, elem);
   }
+
   return (
-    <List sx={{ maxHeight: 200, overflow: "auto" }}>
+    <List className={styles.listNamesCurrencies}>
       {Object.keys(currenciesAllNames).map((elem) => (
         <ListItem key={elem}>
           {!listCurrencies.some((currency) => currency.shortName === elem) && (
