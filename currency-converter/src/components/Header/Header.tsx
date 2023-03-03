@@ -10,7 +10,7 @@ import styles from "./Header.module.scss";
 
 function Header() {
   return (
-    <AppBar position="static">
+    <AppBar className={styles.header}>
       <Container maxWidth="lg">
         <Toolbar>
           <Typography variant="h6" component="h1" className={styles.logo}>
