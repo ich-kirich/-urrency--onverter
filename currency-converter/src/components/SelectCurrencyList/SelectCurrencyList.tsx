@@ -1,22 +1,18 @@
 import { NativeSelect } from "@mui/material";
 import { useContext } from "react";
 import { ICurrency, ISelectCurrencyListProps } from "../../types/types";
-import {
-  changePropertyCurrency,
-  Context,
-  saveBaseCurrency,
-  shortNameProperty,
-} from "../../utils/utils";
+import { changePropertyCurrency, saveBaseCurrency } from "../../libs/currency";
+import { CONTEXT, SHORT_NAME_PROPERTY } from "../../libs/constants";
 import styles from "./SelectCurrencyList.module.scss";
 
 function SelectCurrencyList(props: ISelectCurrencyListProps) {
-  const { currenciesAllNames } = useContext(Context);
+  const { currenciesAllNames } = useContext(CONTEXT);
   const { chooseCurrency, currencyValue, setCurrencyValue } = props;
 
   const updateListCurrency = (value: string, shortName: string) => {
     changePropertyCurrency(
       currencyValue as ICurrency[],
-      shortNameProperty,
+      SHORT_NAME_PROPERTY,
       shortName,
       setCurrencyValue,
       value,

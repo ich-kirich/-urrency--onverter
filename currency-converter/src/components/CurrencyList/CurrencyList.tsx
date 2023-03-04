@@ -8,11 +8,11 @@ import { AllCurrencies, Rates } from "../../types/types";
 import BaseCurrency from "../BaseCurrency/BaseCurrency";
 import { useSortedCurrencies } from "../../hooks/useCurrencies";
 import {
-  Context,
-  defaultBaseCurrency,
-  defaultCurrencyList,
-  favouriteProperty,
-} from "../../utils/utils";
+  CONTEXT,
+  DEFAULT_BASE_LIST,
+  DEFAULT_CURRENCY_LIST,
+  FAVOURITE_PROPERTY,
+} from "../../libs/constants";
 import ModalComponent from "../ModalComponent/ModalComponent";
 import AddListCurrency from "../AddListCurrency/AddListCurrency";
 import AddNewCurrency from "../AddNewCurrency/AddNewCurrency";
@@ -23,8 +23,8 @@ function CurrencyList() {
   const [visible, setVisible] = useState(false);
   const [currenciesNames, setCurrenciesNames] = useState({} as AllCurrencies);
   const [baseCurrencyRates, setBaseCurrencyRates] = useState({} as Rates);
-  const [baseCurrency, setBaseCurrency] = useState(defaultBaseCurrency);
-  const [listCurrencies, setListCurrencies] = useState(defaultCurrencyList);
+  const [baseCurrency, setBaseCurrency] = useState(DEFAULT_BASE_LIST);
+  const [listCurrencies, setListCurrencies] = useState(DEFAULT_CURRENCY_LIST);
   const [fetchCurrencies, isAllCurrLoading, isErrorAllCurr] = useFetching(
     async () => {
       const response = await getAllCurrencies();
@@ -48,7 +48,7 @@ function CurrencyList() {
 
   const sortedListCurrencies = useSortedCurrencies(
     listCurrencies,
-    favouriteProperty,
+    FAVOURITE_PROPERTY,
   );
 
   const contextValue = useMemo(
@@ -60,7 +60,7 @@ function CurrencyList() {
     [currenciesNames, amountMoney, setAmountMoney],
   );
   return (
-    <Context.Provider value={contextValue}>
+    <CONTEXT.Provider value={contextValue}>
       {isErrorAllCurr || isErrorCurr ? (
         <ViewError>{isErrorAllCurr || isErrorCurr}</ViewError>
       ) : (
@@ -103,7 +103,7 @@ function CurrencyList() {
           )}
         </Box>
       )}
-    </Context.Provider>
+    </CONTEXT.Provider>
   );
 }
 

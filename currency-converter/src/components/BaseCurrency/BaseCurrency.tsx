@@ -1,14 +1,14 @@
 import { Box } from "@mui/material";
-import { useContext, useState } from "react";
-import { IBaseCurrencyProps, ICurrency } from "../../types/types";
-import { Context } from "../../utils/utils";
+import { useContext } from "react";
+import { IBaseCurrencyProps } from "../../types/types";
+import { CONTEXT } from "../../libs/constants";
 import NameCurrency from "../NameCurrency/NameCurrency";
 import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import styles from "./BaseCurrency.module.scss";
 
 function BaseCurrency(props: IBaseCurrencyProps) {
   const { baseCurrency, setBaseCurrency } = props;
-  const { currenciesAllNames, amount, setMoney } = useContext(Context);
+  const { currenciesAllNames, amount, setMoney } = useContext(CONTEXT);
   return (
     <>
       <NameCurrency>

@@ -2,25 +2,21 @@ import { Box } from "@mui/material";
 import { useContext, useMemo, useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
-import { ICurrency, ICurrencyProps } from "../../types/types";
+import { ICurrencyProps } from "../../types/types";
 import styles from "./Currency.module.scss";
-import {
-  changePropertyCurrency,
-  Context,
-  favouriteProperty,
-  saveCurrencies,
-} from "../../utils/utils";
+import { changePropertyCurrency, saveCurrencies } from "../../libs/currency";
+import { CONTEXT, FAVOURITE_PROPERTY } from "../../libs/constants";
 import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import NameCurrency from "../NameCurrency/NameCurrency";
 
 function Currency(props: ICurrencyProps) {
   const { currency, amount, listCurrencies, setListCurrencies } = props;
-  const { currenciesAllNames, setMoney } = useContext(Context);
+  const { currenciesAllNames, setMoney } = useContext(CONTEXT);
 
   const updateListCurrency = () => {
     changePropertyCurrency(
       listCurrencies,
-      favouriteProperty,
+      FAVOURITE_PROPERTY,
       currency.shortName,
       setListCurrencies,
     );
