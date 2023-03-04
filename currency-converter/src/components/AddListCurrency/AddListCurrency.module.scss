@@ -1,15 +1,15 @@
 .listNamesCurrencies {
-    max-height: 200px;
-    overflow: auto;
+  max-height: 200px;
+  overflow: auto;
 
-    .nameCurrency {
-        color: #808080;
-        text-decoration: underline;
-        cursor: pointer;
-        transition: 0.5s;
+  .nameCurrency {
+    color: #808080;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.5s;
 
-        &:hover {
-            color: #000;
-        }
+    &:hover {
+      color: #000;
     }
+  }
 }
