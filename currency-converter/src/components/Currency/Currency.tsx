@@ -28,7 +28,7 @@ function Currency(props: ICurrencyProps) {
 
   const deleteCurrency = () => {
     const newListCurrency = [...listCurrencies].filter(
-      (elem) => elem.shortName !== currency.shortName,
+      (item) => item.shortName !== currency.shortName,
     );
     saveCurrencies(setListCurrencies, newListCurrency);
   };

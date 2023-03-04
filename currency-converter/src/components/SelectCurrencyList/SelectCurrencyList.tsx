@@ -37,19 +37,19 @@ function SelectCurrencyList(props: ISelectCurrencyListProps) {
           : (e) => updateListCurrency(e.target.value, chooseCurrency)
       }
     >
-      {Object.keys(currenciesAllNames).map((elem) => (
+      {Object.keys(currenciesAllNames).map((item) => (
         <option
-          key={elem}
-          value={elem}
+          key={item}
+          value={item}
           disabled={
             Array.isArray(currencyValue)
               ? (currencyValue as ICurrency[]).some(
-                  (currency) => currency.shortName === elem,
+                  (currency) => currency.shortName === item,
                 )
-              : (currencyValue as ICurrency).shortName === elem
+              : (currencyValue as ICurrency).shortName === item
           }
         >
-          {elem}
+          {item}
         </option>
       ))}
     </NativeSelect>

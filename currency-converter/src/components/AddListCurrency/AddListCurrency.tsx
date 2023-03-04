@@ -8,19 +8,19 @@ function AddListCurrency(props: IListCurrencies) {
   const { listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames } = useContext(Context);
 
-  function addToList(elem: string) {
-    saveCurrencyToList(listCurrencies, setListCurrencies, elem);
+  function addToList(nameCurrency: string) {
+    saveCurrencyToList(listCurrencies, setListCurrencies, nameCurrency);
   }
 
   return (
     <List className={styles.list__name}>
-      {Object.keys(currenciesAllNames).map((elem) => (
-        <ListItem key={elem}>
-          {!listCurrencies.some((currency) => currency.shortName === elem) && (
+      {Object.keys(currenciesAllNames).map((item) => (
+        <ListItem key={item}>
+          {!listCurrencies.some((currency) => currency.shortName === item) && (
             <ListItemText
               className={styles.name__currency}
-              primary={`${elem}: ${currenciesAllNames[elem]}`}
-              onClick={() => addToList(elem)}
+              primary={`${item}: ${currenciesAllNames[item]}`}
+              onClick={() => addToList(item)}
             />
           )}
         </ListItem>

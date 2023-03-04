@@ -73,17 +73,17 @@ function CurrencyList() {
                 baseCurrency={baseCurrency}
                 setBaseCurrency={setBaseCurrency}
               />
-              {sortedListCurrencies.map((currency) => (
+              {sortedListCurrencies.map((item) => (
                 <Currency
-                  key={currency.shortName}
-                  currency={currency}
+                  key={item.shortName}
+                  currency={item}
                   amount={
                     Object.keys(baseCurrencyRates).length !== 0 &&
                     baseCurrencyRates[baseCurrency.shortName]
                       ? String(
                           Number(amountMoney) *
                             baseCurrencyRates[baseCurrency.shortName][
-                              currency.shortName
+                              item.shortName
                             ],
                         )
                       : ""

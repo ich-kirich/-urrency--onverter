@@ -41,18 +41,16 @@ export function changePropertyCurrency(
   setListCurrencies: Function,
   value?: string,
 ) {
-  const updateListCurrencies = [...listCurrencies].map(
-    (currency: ICurrency) => {
-      if (currency.shortName === shortName) {
-        if (value) {
-          (currency[propertyToChange] as string) = value;
-        } else {
-          (currency[propertyToChange] as boolean) = !currency[propertyToChange];
-        }
+  const updateListCurrencies = [...listCurrencies].map((item: ICurrency) => {
+    if (item.shortName === shortName) {
+      if (value) {
+        (item[propertyToChange] as string) = value;
+      } else {
+        (item[propertyToChange] as boolean) = !item[propertyToChange];
       }
-      return currency;
-    },
-  );
+    }
+    return item;
+  });
   saveCurrencies(setListCurrencies, updateListCurrencies);
 }
 
