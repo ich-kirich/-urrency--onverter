@@ -32,9 +32,9 @@ function SelectCurrencyList(props: ISelectCurrencyListProps) {
       value={chooseCurrency}
       className={styles.currency__select}
       onChange={
-        !Array.isArray(currencyValue)
-          ? (e) => updateBaseCurrency(e.target.value)
-          : (e) => updateListCurrency(e.target.value, chooseCurrency)
+        Array.isArray(currencyValue)
+          ? (e) => updateListCurrency(e.target.value, chooseCurrency)
+          : (e) => updateBaseCurrency(e.target.value)
       }
     >
       {Object.keys(currenciesAllNames).map((item) => (

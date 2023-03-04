@@ -18,17 +18,7 @@ function MoneyFieldCurrency(props: IMoneyFieldCurrencyProps) {
         currencyValue={currencyValue}
         setCurrencyValue={setCurrencyValue}
       />
-      {Object.keys(currency as ICurrency).length !== 0 ? (
-        <Box className={styles.currency__input}>
-          <Typography
-            variant="body1"
-            component="p"
-            className={styles.currency__amount}
-          >
-            {amount}
-          </Typography>
-        </Box>
-      ) : (
+      {Object.keys(currency as ICurrency).length === 0 ? (
         <TextField
           id="currecny"
           label="Enter a number"
@@ -43,6 +33,16 @@ function MoneyFieldCurrency(props: IMoneyFieldCurrencyProps) {
           onKeyUp={() => setMoney(value)}
           className={styles.currency__input}
         />
+      ) : (
+        <Box className={styles.currency__input}>
+          <Typography
+            variant="body1"
+            component="p"
+            className={styles.currency__amount}
+          >
+            {amount}
+          </Typography>
+        </Box>
       )}
     </>
   );
