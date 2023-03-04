@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useContext, useMemo, useState } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
-import { ICurrency } from "../../types/types";
+import { ICurrency, ICurrencyProps } from "../../types/types";
 import styles from "./Currency.module.scss";
 import {
   changePropertyCurrency,
@@ -10,15 +10,10 @@ import {
   favouriteProperty,
   saveCurrencies,
 } from "../../utils/utils";
-import SelectInputCurrency from "../SelectInputCurrency/SelectInputCurrency";
+import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import NameCurrency from "../NameCurrency/NameCurrency";
 
-function Currency(props: {
-  currency: ICurrency;
-  amount: string;
-  listCurrencies: ICurrency[];
-  setListCurrencies: Function;
-}) {
+function Currency(props: ICurrencyProps) {
   const { currency, amount, listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames, setMoney } = useContext(Context);
 
@@ -50,11 +45,11 @@ function Currency(props: {
           }
           onClick={updateListCurrency}
         />
-        <SelectInputCurrency
-          setAmountMoney={setMoney}
+        <MoneyFieldCurrency
+          setMoney={setMoney}
           currencyValue={listCurrencies}
           setCurrencyValue={setListCurrencies}
-          amountMoney={amount}
+          amount={amount}
           currency={currency}
         />
         <CloseIcon

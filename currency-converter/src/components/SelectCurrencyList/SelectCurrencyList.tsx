@@ -1,6 +1,6 @@
 import { NativeSelect } from "@mui/material";
 import { useContext } from "react";
-import { ICurrency } from "../../types/types";
+import { ICurrency, ISelectCurrencyListProps } from "../../types/types";
 import {
   changePropertyCurrency,
   Context,
@@ -9,26 +9,22 @@ import {
 } from "../../utils/utils";
 import styles from "./SelectCurrencyList.module.scss";
 
-function SelectCurrencyList(props: {
-  chooseCurrency: string;
-  setCurrencies: Function;
-  currenciesValue: ICurrency | ICurrency[];
-}) {
+function SelectCurrencyList(props: ISelectCurrencyListProps) {
   const { currenciesAllNames } = useContext(Context);
-  const { chooseCurrency, currenciesValue, setCurrencies } = props;
+  const { chooseCurrency, currencyValue, setCurrencyValue } = props;
 
   const updateListCurrency = (value: string, shortName: string) => {
     changePropertyCurrency(
-      currenciesValue as ICurrency[],
+      currencyValue as ICurrency[],
       shortNameProperty,
       shortName,
-      setCurrencies,
+      setCurrencyValue,
       value,
     );
   };
 
   const updateBaseCurrency = (value: string) => {
-    saveBaseCurrency(setCurrencies, value, currenciesValue as ICurrency);
+    saveBaseCurrency(setCurrencyValue, value, currencyValue as ICurrency);
   };
 
   return (
@@ -36,7 +32,7 @@ function SelectCurrencyList(props: {
       value={chooseCurrency}
       className={styles.currency__select}
       onChange={
-        !Array.isArray(currenciesValue)
+        !Array.isArray(currencyValue)
           ? (e) => updateBaseCurrency(e.target.value)
           : (e) => updateListCurrency(e.target.value, chooseCurrency)
       }
@@ -46,11 +42,11 @@ function SelectCurrencyList(props: {
           key={elem}
           value={elem}
           disabled={
-            Array.isArray(currenciesValue)
-              ? (currenciesValue as ICurrency[]).some(
+            Array.isArray(currencyValue)
+              ? (currencyValue as ICurrency[]).some(
                   (currency) => currency.shortName === elem,
                 )
-              : (currenciesValue as ICurrency).shortName === elem
+              : (currencyValue as ICurrency).shortName === elem
           }
         >
           {elem}

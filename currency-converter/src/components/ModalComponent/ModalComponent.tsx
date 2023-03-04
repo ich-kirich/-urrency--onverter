@@ -1,12 +1,9 @@
 import { Box } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { IModalComponentProps } from "../../types/types";
 import styles from "./ModalComponent.module.scss";
 
-function ModalComponent(props: {
-  children: React.ReactNode;
-  visible: boolean;
-  setVisible: Function;
-}) {
+function ModalComponent(props: IModalComponentProps) {
   const { children, visible, setVisible } = props;
   const rootClasses = [styles.modal__invisible];
   const box = useRef<HTMLDivElement>(null);

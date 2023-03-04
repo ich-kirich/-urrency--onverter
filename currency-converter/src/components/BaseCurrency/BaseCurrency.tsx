@@ -1,15 +1,12 @@
 import { Box } from "@mui/material";
 import { useContext, useState } from "react";
-import { ICurrency } from "../../types/types";
+import { IBaseCurrencyProps, ICurrency } from "../../types/types";
 import { Context } from "../../utils/utils";
 import NameCurrency from "../NameCurrency/NameCurrency";
-import SelectInputCurrency from "../SelectInputCurrency/SelectInputCurrency";
+import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import styles from "./BaseCurrency.module.scss";
 
-function BaseCurrency(props: {
-  baseCurrency: ICurrency;
-  setBaseCurrency: Function;
-}) {
+function BaseCurrency(props: IBaseCurrencyProps) {
   const { baseCurrency, setBaseCurrency } = props;
   const { currenciesAllNames, amount, setMoney } = useContext(Context);
   return (
@@ -18,11 +15,11 @@ function BaseCurrency(props: {
         Base currency: {currenciesAllNames[baseCurrency.shortName]}
       </NameCurrency>
       <Box className={styles.inputCurrency__wrapper}>
-        <SelectInputCurrency
-          setAmountMoney={setMoney}
+        <MoneyFieldCurrency
+          setMoney={setMoney}
           currencyValue={baseCurrency}
           setCurrencyValue={setBaseCurrency}
-          amountMoney={amount}
+          amount={amount}
         />
       </Box>
     </>

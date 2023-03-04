@@ -1,24 +1,12 @@
 import { Box, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { ICurrency } from "../../types/types";
+import { ICurrency, IMoneyFieldCurrencyProps } from "../../types/types";
 import SelectCurrencyList from "../SelectCurrencyList/SelectCurrencyList";
-import styles from "./SelectInputCurrency.module.scss";
+import styles from "./MoneyFieldCurrency.module.scss";
 
-function SelectInputCurrency(props: {
-  setAmountMoney: Function;
-  currencyValue: ICurrency | ICurrency[];
-  setCurrencyValue: Function;
-  amountMoney: string;
-  currency?: ICurrency;
-}) {
-  const {
-    setAmountMoney,
-    currencyValue,
-    setCurrencyValue,
-    currency,
-    amountMoney,
-  } = props;
-  const [value, setValue] = useState(amountMoney);
+function MoneyFieldCurrency(props: IMoneyFieldCurrencyProps) {
+  const { setMoney, currencyValue, setCurrencyValue, currency, amount } = props;
+  const [value, setValue] = useState(amount);
   return (
     <>
       <SelectCurrencyList
@@ -27,8 +15,8 @@ function SelectInputCurrency(props: {
             ? (currency as ICurrency).shortName
             : (currencyValue as ICurrency).shortName
         }
-        currenciesValue={currencyValue}
-        setCurrencies={setCurrencyValue}
+        currencyValue={currencyValue}
+        setCurrencyValue={setCurrencyValue}
       />
       {Object.keys(currency as ICurrency).length !== 0 ? (
         <Box className={styles.currency__input}>
@@ -37,7 +25,7 @@ function SelectInputCurrency(props: {
             component="p"
             className={styles.currency__amount}
           >
-            {amountMoney}
+            {amount}
           </Typography>
         </Box>
       ) : (
@@ -52,7 +40,7 @@ function SelectInputCurrency(props: {
           onChange={(e) =>
             Number(e.target.value) >= 0 && setValue(e.target.value)
           }
-          onKeyUp={() => setAmountMoney(value)}
+          onKeyUp={() => setMoney(value)}
           className={styles.currency__input}
         />
       )}
@@ -60,8 +48,8 @@ function SelectInputCurrency(props: {
   );
 }
 
-SelectInputCurrency.defaultProps = {
+MoneyFieldCurrency.defaultProps = {
   currency: {} as ICurrency,
 };
 
-export default SelectInputCurrency;
+export default MoneyFieldCurrency;

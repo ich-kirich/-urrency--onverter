@@ -1,13 +1,10 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 import { useContext } from "react";
-import { ICurrency } from "../../types/types";
+import { IListCurrencies } from "../../types/types";
 import { Context, saveCurrencyToList } from "../../utils/utils";
 import styles from "./AddListCurrency.module.scss";
 
-function AddListCurrency(props: {
-  listCurrencies: ICurrency[];
-  setListCurrencies: Function;
-}) {
+function AddListCurrency(props: IListCurrencies) {
   const { listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames } = useContext(Context);
 
