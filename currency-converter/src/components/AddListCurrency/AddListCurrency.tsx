@@ -8,6 +8,9 @@ import styles from "./AddListCurrency.module.scss";
 function AddListCurrency(props: IListCurrencies) {
   const { listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames } = useContext(CONTEXT);
+  const CurrenciesNames = Object.keys(currenciesAllNames).filter(
+    (item) => !listCurrencies.find((elem) => elem.shortName === item),
+  );
 
   function addToList(nameCurrency: string) {
     saveCurrencyToList(listCurrencies, setListCurrencies, nameCurrency);
@@ -15,15 +18,13 @@ function AddListCurrency(props: IListCurrencies) {
 
   return (
     <List className={styles.list__name}>
-      {Object.keys(currenciesAllNames).map((item) => (
+      {CurrenciesNames.map((item) => (
         <ListItem key={item}>
-          {!listCurrencies.some((currency) => currency.shortName === item) && (
-            <ListItemText
-              className={styles.name__currency}
-              primary={`${item}: ${currenciesAllNames[item]}`}
-              onClick={() => addToList(item)}
-            />
-          )}
+          <ListItemText
+            className={styles.name__currency}
+            primary={`${item}: ${currenciesAllNames[item]}`}
+            onClick={() => addToList(item)}
+          />
         </ListItem>
       ))}
     </List>
