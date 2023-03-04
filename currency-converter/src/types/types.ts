@@ -59,8 +59,4 @@ interface ICurrencyState {
   currencyValue: ICurrency | ICurrency[];
 }
 
-type CurrencyRates = {
-  [key: string]: {
-    [key: string]: number;
-  };
-};
+type CurrencyRates = Record<string, Record<string, number>>;
