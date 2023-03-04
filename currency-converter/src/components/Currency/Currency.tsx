@@ -41,10 +41,12 @@ function Currency(props: {
   return (
     <>
       <NameCurrency>{currenciesAllNames[currency.shortName]}</NameCurrency>
-      <Box className={styles.wrapperInpCurrency}>
+      <Box className={styles.currency__wrapper}>
         <StarIcon
           className={
-            currency.favourite ? styles.isFavorite : styles.notFavorite
+            currency.favourite
+              ? styles.currency__favorite
+              : styles.currency__unfavored
           }
           onClick={updateListCurrency}
         />
@@ -55,7 +57,10 @@ function Currency(props: {
           amountMoney={amount}
           currency={currency}
         />
-        <CloseIcon className={styles.deleteCurrency} onClick={deleteCurrency} />
+        <CloseIcon
+          className={styles.currency__delete}
+          onClick={deleteCurrency}
+        />
       </Box>
     </>
   );

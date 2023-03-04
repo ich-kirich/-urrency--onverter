@@ -17,7 +17,7 @@ function BaseCurrency(props: {
       <NameCurrency>
         Base currency: {currenciesAllNames[baseCurrency.shortName]}
       </NameCurrency>
-      <Box className={styles.wrapperInpCurrency}>
+      <Box className={styles.inputCurrency__wrapper}>
         <SelectInputCurrency
           setAmountMoney={setMoney}
           currencyValue={baseCurrency}

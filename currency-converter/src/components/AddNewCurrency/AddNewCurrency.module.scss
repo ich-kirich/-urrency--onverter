@@ -1,18 +1,18 @@
-.wrapperAddCurrency {
+.add__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
 
-  .addCurrency {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    transition: 1s;
-    cursor: pointer;
+.add__currency {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  transition: 1s;
+  cursor: pointer;
 
-    &:hover {
-      color: #000;
-    }
+  &:hover {
+    color: #000;
   }
 }

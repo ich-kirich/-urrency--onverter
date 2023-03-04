@@ -5,9 +5,9 @@ import styles from "./AddNewCurrency.module.scss";
 function AddNewCurrency(props: { setVisible: Function }) {
   const { setVisible } = props;
   return (
-    <Box className={styles.wrapperAddCurrency}>
+    <Box className={styles.add__wrapper}>
       <Box
-        className={styles.addCurrency}
+        className={styles.add__currency}
         onClick={(e) => {
           e.stopPropagation();
           setVisible(true);

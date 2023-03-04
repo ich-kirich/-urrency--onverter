@@ -34,7 +34,7 @@ function SelectCurrencyList(props: {
   return (
     <NativeSelect
       value={chooseCurrency}
-      className={styles.selectCurrency}
+      className={styles.currency__select}
       onChange={
         !Array.isArray(currenciesValue)
           ? (e) => updateBaseCurrency(e.target.value)

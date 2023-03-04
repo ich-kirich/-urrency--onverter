@@ -2,8 +2,8 @@ import styles from "./Loader.module.scss";
 
 function Loader() {
   return (
-    <div className={styles.wrapperLoader}>
-      <div className={styles.loader} />
+    <div className={styles.loader__wrapper}>
+      <div className={styles.loader__animation} />
     </div>
   );
 }

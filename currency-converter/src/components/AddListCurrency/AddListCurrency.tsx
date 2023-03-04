@@ -16,12 +16,12 @@ function AddListCurrency(props: {
   }
 
   return (
-    <List className={styles.listNamesCurrencies}>
+    <List className={styles.list__name}>
       {Object.keys(currenciesAllNames).map((elem) => (
         <ListItem key={elem}>
           {!listCurrencies.some((currency) => currency.shortName === elem) && (
             <ListItemText
-              className={styles.nameCurrency}
+              className={styles.name__currency}
               primary={`${elem}: ${currenciesAllNames[elem]}`}
               onClick={() => addToList(elem)}
             />

@@ -1,36 +1,37 @@
 %controlBtnsCurrency {
   align-self: center;
   cursor: pointer;
+  transition: 1s;
 }
 
-.wrapperInpCurrency {
+.currency__wrapper {
   display: flex;
   gap: 5px;
+}
 
-  .isFavorite {
-    @extend %controlBtnsCurrency;
+.currency__favorite {
+  @extend %controlBtnsCurrency;
+  color: #FFFF00;
+
+  &:hover {
+    color: rgba(75, 79, 79, 0.5);
+  }
+}
+
+.currency__unfavored {
+  @extend %controlBtnsCurrency;
+  color: rgba(75, 79, 79, 0.5);
+
+  &:hover {
     color: #FFFF00;
-
-    &:hover {
-      color: rgba(75, 79, 79, 0.5);
-    }
   }
+}
 
-  .notFavorite {
-    @extend %controlBtnsCurrency;
-    color: rgba(75, 79, 79, 0.5);
+.currency__delete {
+  @extend %controlBtnsCurrency;
+  color: rgba(75, 79, 79, 0.5);
 
-    &:hover {
-      color: #FFFF00;
-    }
-  }
-
-  .deleteCurrency {
-    @extend %controlBtnsCurrency;
-    color: rgba(75, 79, 79, 0.5);
-
-    &:hover {
-      color: rgb(0, 0, 0);
-    }
+  &:hover {
+    color: rgb(0, 0, 0);
   }
 }

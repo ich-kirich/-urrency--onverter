@@ -31,8 +31,12 @@ function SelectInputCurrency(props: {
         setCurrencies={setCurrencyValue}
       />
       {Object.keys(currency as ICurrency).length !== 0 ? (
-        <Box className={styles.inputCurrency}>
-          <Typography variant="body1" component="p" className={styles.text}>
+        <Box className={styles.currency__input}>
+          <Typography
+            variant="body1"
+            component="p"
+            className={styles.currency__amount}
+          >
             {amountMoney}
           </Typography>
         </Box>
@@ -49,7 +53,7 @@ function SelectInputCurrency(props: {
             Number(e.target.value) >= 0 && setValue(e.target.value)
           }
           onKeyUp={() => setAmountMoney(value)}
-          className={styles.inputCurrency}
+          className={styles.currency__input}
         />
       )}
     </>

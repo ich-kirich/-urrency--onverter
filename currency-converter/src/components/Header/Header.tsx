@@ -10,17 +10,29 @@ import styles from "./Header.module.scss";
 
 function Header() {
   return (
-    <AppBar className={styles.header}>
+    <AppBar className={styles.topBar}>
       <Container maxWidth="lg">
         <Toolbar>
-          <Typography variant="h6" component="h1" className={styles.logo}>
+          <Typography
+            variant="h6"
+            component="h1"
+            className={styles.topBar__logo}
+          >
             Currency converter
           </Typography>
-          <Box maxWidth="sm" className={styles.wrapperNavBtns}>
-            <Link href="#123" variant="body1" className={styles.navBtns}>
+          <Box maxWidth="sm" className={styles.navigation__wrapper}>
+            <Link
+              href="#123"
+              variant="body1"
+              className={styles.navigation__btns}
+            >
               Exchange rates
             </Link>
-            <Link href="#123" variant="body1" className={styles.navBtns}>
+            <Link
+              href="#123"
+              variant="body1"
+              className={styles.navigation__btns}
+            >
               Convert Currency
             </Link>
           </Box>

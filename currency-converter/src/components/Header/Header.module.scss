@@ -1,22 +1,22 @@
-.wrapperNavBtns {
-  display: flex;
-  gap: 15px;
-
-  .navBtns {
-    text-decoration: none;
-    color: white;
-    transition: 0.5s color;
-
-    &:hover {
-      color: #000;
-    }
-  }
-}
-
-.header {
+.topBar {
   position: static;
 }
 
-.logo {
+.topBar__logo {
   flex-grow: 1;
+}
+
+.navigation__wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.navigation__btns {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s color;
+
+  &:hover {
+    color: #000;
+  }
 }

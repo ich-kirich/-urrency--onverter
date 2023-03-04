@@ -68,7 +68,7 @@ function CurrencyList() {
           {isCurrLoading || isAllCurrLoading ? (
             <Loader />
           ) : (
-            <Box className={styles.currencyList}>
+            <Box className={styles.currency__selector}>
               <BaseCurrency
                 baseCurrency={baseCurrency}
                 setBaseCurrency={setBaseCurrency}

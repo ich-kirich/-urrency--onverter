@@ -8,11 +8,11 @@ function ModalComponent(props: {
   setVisible: Function;
 }) {
   const { children, visible, setVisible } = props;
-  const rootClasses = [styles.myModal];
+  const rootClasses = [styles.modal__invisible];
   const box = useRef<HTMLDivElement>(null);
 
   if (visible) {
-    rootClasses.push(styles.active);
+    rootClasses.push(styles.modal__visible);
   }
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ModalComponent(props: {
 
   return (
     <Box className={rootClasses.join(" ")}>
-      <Box className={styles.myModalContent} ref={box}>
+      <Box className={styles.modal__content} ref={box}>
         {children}
       </Box>
     </Box>
