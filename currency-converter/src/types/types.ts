@@ -5,7 +5,7 @@ export interface ICurrency {
   favourite: boolean;
 }
 
-export interface IContextCurrency extends IMoney {
+export interface IContextCurrency extends IMoney, IListCurrencies {
   currenciesAllNames: AllCurrencies;
 }
 
@@ -27,6 +27,10 @@ export interface ICurrencyProps extends IListCurrencies {
   amount: string;
 }
 
+export interface ICurrencyBlockProps extends IBaseCurrencyProps {
+  baseCurrencyRates: Rates;
+}
+
 export interface IBaseCurrencyProps {
   baseCurrency: ICurrency;
   setBaseCurrency: Function;
@@ -36,13 +40,18 @@ export interface IAddNewCurrencyProps {
   setVisible: Function;
 }
 
-export interface IListCurrencies {
-  listCurrencies: ICurrency[];
-  setListCurrencies: Function;
-}
-
 export interface IMoneyFieldCurrencyProps extends ICurrencyState {
   amount: string;
+}
+
+export interface ICurrencyListProps {
+  baseCurrencyRates: Rates;
+  baseCurrency: ICurrency;
+}
+
+export interface IListCurrencies {
+  listCurrencies: ICurrency[];
+  setListCurrency: Function;
 }
 
 export type Rates = {

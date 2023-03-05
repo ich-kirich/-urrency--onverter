@@ -1,5 +1,5 @@
 import { Container, StyledEngineProvider } from "@mui/material";
-import CurrencyList from "./components/CurrencyList/CurrencyList";
+import MainPage from "./components/MainPage/MainPage";
 import Header from "./components/Header/Header";
 import "./styles/index.scss";
 import "./styles/normalize.css";
@@ -9,7 +9,7 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Header />
       <Container maxWidth="sm" className="App">
-        <CurrencyList />
+        <MainPage />
       </Container>
     </StyledEngineProvider>
   );

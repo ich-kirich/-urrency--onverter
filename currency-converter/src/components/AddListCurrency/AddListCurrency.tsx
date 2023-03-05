@@ -6,14 +6,14 @@ import { CONTEXT } from "../../libs/constants";
 import styles from "./AddListCurrency.module.scss";
 
 function AddListCurrency(props: IListCurrencies) {
-  const { listCurrencies, setListCurrencies } = props;
+  const { listCurrencies, setListCurrency } = props;
   const { currenciesAllNames } = useContext(CONTEXT);
   const currenciesNames = Object.keys(currenciesAllNames).filter(
     (item) => !listCurrencies.find((elem) => elem.shortName === item),
   );
 
   function addToList(nameCurrency: string) {
-    saveCurrencyToList(listCurrencies, setListCurrencies, nameCurrency);
+    saveCurrencyToList(listCurrencies, setListCurrency, nameCurrency);
   }
 
   return (

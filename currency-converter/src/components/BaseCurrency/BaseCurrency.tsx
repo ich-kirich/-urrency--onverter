@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { IBaseCurrencyProps } from "../../types/types";
 import { CONTEXT } from "../../libs/constants";
 import NameCurrency from "../NameCurrency/NameCurrency";
-import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import styles from "./BaseCurrency.module.scss";
 import BaseMoneyField from "../BaseMoneyField/BaseMoneyField";
 

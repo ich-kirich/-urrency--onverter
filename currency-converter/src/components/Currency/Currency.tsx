@@ -10,7 +10,7 @@ import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import NameCurrency from "../NameCurrency/NameCurrency";
 
 function Currency(props: ICurrencyProps) {
-  const { currency, amount, listCurrencies, setListCurrencies } = props;
+  const { currency, amount, listCurrencies, setListCurrency } = props;
   const { currenciesAllNames } = useContext(CONTEXT);
 
   const updateListCurrency = () => {
@@ -18,7 +18,7 @@ function Currency(props: ICurrencyProps) {
       listCurrencies,
       FAVOURITE_PROPERTY,
       currency.shortName,
-      setListCurrencies,
+      setListCurrency,
     );
   };
 
@@ -26,7 +26,7 @@ function Currency(props: ICurrencyProps) {
     const newListCurrency = [...listCurrencies].filter(
       (item) => item.shortName !== currency.shortName,
     );
-    saveCurrencies(setListCurrencies, newListCurrency);
+    saveCurrencies(setListCurrency, newListCurrency);
   };
   return (
     <>
@@ -41,7 +41,7 @@ function Currency(props: ICurrencyProps) {
           onClick={updateListCurrency}
         />
         <MoneyFieldCurrency
-          setCurrencyValue={setListCurrencies}
+          setCurrencyValue={setListCurrency}
           amount={amount}
           currencyValue={currency}
           listCurrency={listCurrencies}
