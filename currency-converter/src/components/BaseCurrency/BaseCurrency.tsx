@@ -5,6 +5,7 @@ import { CONTEXT } from "../../libs/constants";
 import NameCurrency from "../NameCurrency/NameCurrency";
 import MoneyFieldCurrency from "../MoneyFieldCurrency/MoneyFieldCurrency";
 import styles from "./BaseCurrency.module.scss";
+import BaseMoneyField from "../BaseMoneyField/BaseMoneyField";
 
 function BaseCurrency(props: IBaseCurrencyProps) {
   const { baseCurrency, setBaseCurrency } = props;
@@ -15,7 +16,7 @@ function BaseCurrency(props: IBaseCurrencyProps) {
         Base currency: {currenciesAllNames[baseCurrency.shortName]}
       </NameCurrency>
       <Box className={styles.inputCurrency__wrapper}>
-        <MoneyFieldCurrency
+        <BaseMoneyField
           setMoney={setMoney}
           currencyValue={baseCurrency}
           setCurrencyValue={setBaseCurrency}

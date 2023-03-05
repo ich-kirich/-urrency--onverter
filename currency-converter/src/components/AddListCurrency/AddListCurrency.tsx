@@ -8,7 +8,7 @@ import styles from "./AddListCurrency.module.scss";
 function AddListCurrency(props: IListCurrencies) {
   const { listCurrencies, setListCurrencies } = props;
   const { currenciesAllNames } = useContext(CONTEXT);
-  const CurrenciesNames = Object.keys(currenciesAllNames).filter(
+  const currenciesNames = Object.keys(currenciesAllNames).filter(
     (item) => !listCurrencies.find((elem) => elem.shortName === item),
   );
 
@@ -18,7 +18,7 @@ function AddListCurrency(props: IListCurrencies) {
 
   return (
     <List className={styles.list__name}>
-      {CurrenciesNames.map((item) => (
+      {currenciesNames.map((item) => (
         <ListItem key={item}>
           <ListItemText
             className={styles.name__currency}

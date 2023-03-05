@@ -33,7 +33,7 @@ export function saveBaseCurrency(
   value: string,
   baseCurrency: ICurrency,
 ) {
-  baseCurrency.shortName = value as string;
+  baseCurrency.shortName = value;
   setBaseCurrency({ ...baseCurrency });
 }
 

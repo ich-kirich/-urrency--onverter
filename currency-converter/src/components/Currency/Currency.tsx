@@ -11,7 +11,7 @@ import NameCurrency from "../NameCurrency/NameCurrency";
 
 function Currency(props: ICurrencyProps) {
   const { currency, amount, listCurrencies, setListCurrencies } = props;
-  const { currenciesAllNames, setMoney } = useContext(CONTEXT);
+  const { currenciesAllNames } = useContext(CONTEXT);
 
   const updateListCurrency = () => {
     changePropertyCurrency(
@@ -28,7 +28,6 @@ function Currency(props: ICurrencyProps) {
     );
     saveCurrencies(setListCurrencies, newListCurrency);
   };
-
   return (
     <>
       <NameCurrency>{currenciesAllNames[currency.shortName]}</NameCurrency>
@@ -42,11 +41,10 @@ function Currency(props: ICurrencyProps) {
           onClick={updateListCurrency}
         />
         <MoneyFieldCurrency
-          setMoney={setMoney}
-          currencyValue={listCurrencies}
           setCurrencyValue={setListCurrencies}
           amount={amount}
-          currency={currency}
+          currencyValue={currency}
+          listCurrency={listCurrencies}
         />
         <CloseIcon
           className={styles.currency__delete}

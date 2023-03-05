@@ -17,10 +17,6 @@ export interface ISelectCurrencyListProps extends ICurrencyState {
   chooseCurrency: string;
 }
 
-export interface IMoneyFieldCurrencyProps extends ICurrencyState, IMoney {
-  currency?: ICurrency;
-}
-
 export interface IModalComponentProps extends IChildernProps {
   visible: boolean;
   setVisible: Function;
@@ -45,18 +41,23 @@ export interface IListCurrencies {
   setListCurrencies: Function;
 }
 
+export interface IMoneyFieldCurrencyProps extends ICurrencyState {
+  amount: string;
+}
+
 export type Rates = {
   date: string;
 } & CurrencyRates;
 
-interface IMoney {
+export interface IMoney {
   amount: string;
   setMoney: Function;
 }
 
-interface ICurrencyState {
+export interface ICurrencyState {
   setCurrencyValue: Function;
-  currencyValue: ICurrency | ICurrency[];
+  currencyValue?: ICurrency;
+  listCurrency?: ICurrency[];
 }
 
 type CurrencyRates = Record<string, Record<string, number>>;
