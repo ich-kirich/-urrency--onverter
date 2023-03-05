@@ -7,6 +7,7 @@ import { ICurrencyBlockProps } from "../../types/types";
 
 function CurrencyBlock(props: ICurrencyBlockProps) {
   const { baseCurrency, setBaseCurrency, baseCurrencyRates } = props;
+
   return (
     <Box className={styles.currency__selector}>
       <BaseCurrency
