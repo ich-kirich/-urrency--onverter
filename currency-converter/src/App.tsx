@@ -6,7 +6,6 @@ import "./styles/normalize.css";
 import AppRouter from "./components/AppRouter/AppRouter";
 
 function App() {
-  console.log(process.env.PUBLIC_URL);
   return (
     <StyledEngineProvider injectFirst>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
