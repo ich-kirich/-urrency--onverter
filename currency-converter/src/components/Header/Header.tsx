@@ -1,11 +1,5 @@
-import {
-  AppBar,
-  Box,
-  Container,
-  Link,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 function Header() {
@@ -21,14 +15,10 @@ function Header() {
             Currency converter
           </Typography>
           <Box maxWidth="sm" className={styles.navigation__wrapper}>
-            <Link href="/" variant="body1" className={styles.navigation__btns}>
+            <Link to="/" className={styles.navigation__btns}>
               Exchange rates
             </Link>
-            <Link
-              href="/convert"
-              variant="body1"
-              className={styles.navigation__btns}
-            >
+            <Link to="/convert" className={styles.navigation__btns}>
               Convert Currency
             </Link>
           </Box>

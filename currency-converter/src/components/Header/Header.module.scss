@@ -12,8 +12,14 @@
 }
 
 .navigation__btns {
+  color: #fff;
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
   text-decoration: none;
-  color: white;
   transition: 0.5s color;
 
   &:hover {

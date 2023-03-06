@@ -8,12 +8,12 @@ import AppRouter from "./components/AppRouter/AppRouter";
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-      <Header />
-      <Container maxWidth="sm" className="App">
-        <BrowserRouter>
+      <BrowserRouter>
+        <Header />
+        <Container maxWidth="sm" className="App">
           <AppRouter />
-        </BrowserRouter>
-      </Container>
+        </Container>
+      </BrowserRouter>
     </StyledEngineProvider>
   );
 }
