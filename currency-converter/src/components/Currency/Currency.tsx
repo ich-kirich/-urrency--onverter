@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useContext, useMemo, useState } from "react";
+import { useContext } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import CloseIcon from "@mui/icons-material/Close";
 import { ICurrencyProps } from "../../types/types";

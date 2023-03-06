@@ -1,7 +1,12 @@
 import { ICurrency } from "../types/types";
-import { DEFAULT_CURRENCY_LIST, KEY_FAVOURITES } from "./constants";
+import {
+  DEFAULT_BASE_CURRENCY,
+  DEFAULT_CURRENCY_LIST,
+  KEY_BASE,
+  KEY_FAVOURITES,
+} from "./constants";
 
-export function saveToLocalStorage(listCurrencies: ICurrency[]) {
+export function saveToLocalStorageFavourites(listCurrencies: ICurrency[]) {
   const favouriteList = listCurrencies.filter((item) => item.favourite);
   localStorage.setItem(KEY_FAVOURITES, JSON.stringify(favouriteList));
 }
@@ -19,12 +24,19 @@ export function loadFavouriteCurrencies() {
   return DEFAULT_CURRENCY_LIST;
 }
 
+export function loadBaseCurrency() {
+  if (localStorage.getItem(KEY_BASE)) {
+    return JSON.parse(localStorage.getItem(KEY_BASE)!);
+  }
+  return DEFAULT_BASE_CURRENCY;
+}
+
 export function saveCurrencies(
   setListCurrencies: Function,
   updateListCurrencies: ICurrency[],
 ) {
   setListCurrencies(updateListCurrencies);
-  saveToLocalStorage(updateListCurrencies);
+  saveToLocalStorageFavourites(updateListCurrencies);
 }
 
 export function changePropertyCurrency(
@@ -54,6 +66,7 @@ export function saveBaseCurrency(
 ) {
   baseCurrency.shortName = value;
   setBaseCurrency({ ...baseCurrency });
+  localStorage.setItem(KEY_BASE, JSON.stringify({ ...baseCurrency }));
 }
 
 export function saveCurrencyToList(

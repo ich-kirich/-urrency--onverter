@@ -5,20 +5,19 @@ import useFetching from "../../hooks/useFetching";
 import { AllCurrencies, Rates } from "../../types/types";
 import {
   CONTEXT,
-  DEFAULT_BASE_LIST,
-  DEFAULT_CURRENCY_LIST,
+  DEFAULT_BASE_CURRENCY,
   FAVOURITE_PROPERTY,
 } from "../../libs/constants";
 import Loader from "../Loader/Loader";
 import ViewError from "../ViewError/ViewError";
 import CurrencyBlock from "../CurrencyBlock/CurrencyBlock";
 import { useSortedCurrencies } from "../../hooks/useCurrencies";
-import { loadFavouriteCurrencies } from "../../libs/currency";
+import { loadBaseCurrency, loadFavouriteCurrencies } from "../../libs/currency";
 
 function MainPage() {
   const [currenciesNames, setCurrenciesNames] = useState({} as AllCurrencies);
   const [baseCurrencyRates, setBaseCurrencyRates] = useState({} as Rates);
-  const [baseCurrency, setBaseCurrency] = useState(DEFAULT_BASE_LIST);
+  const [baseCurrency, setBaseCurrency] = useState(loadBaseCurrency());
   const [amountMoney, setAmountMoney] = useState("");
   const [listCurrencies, setListCurrencies] = useState(
     loadFavouriteCurrencies(),

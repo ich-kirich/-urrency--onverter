@@ -54,10 +54,6 @@ export interface IListCurrencies {
   setListCurrency: Function;
 }
 
-export type Rates = {
-  date: string;
-} & CurrencyRates;
-
 export interface IMoney {
   amount: string;
   setMoney: Function;
@@ -68,5 +64,9 @@ export interface ICurrencyState {
   currencyValue?: ICurrency;
   listCurrency?: ICurrency[];
 }
+
+export type Rates = {
+  date: string;
+} & CurrencyRates;
 
 type CurrencyRates = Record<string, Record<string, number>>;
