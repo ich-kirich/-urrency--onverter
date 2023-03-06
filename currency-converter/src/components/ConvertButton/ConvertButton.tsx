@@ -12,7 +12,6 @@ function ConvertButton(props: IConvertButtonProps) {
   const [fetchCoupleCurrency, isCoupleCurrencyLoading, isErrorCoupleCurrency] =
     useFetching(async () => {
       const response = await getCoupleCurrencies(currencyFrom, currencyTo);
-      console.log(response.data[currencyTo]);
       setMoney(response.data[currencyTo] * Number(amount));
     });
 

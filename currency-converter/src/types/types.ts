@@ -11,6 +11,7 @@ export interface IContextCurrency extends IMoney, IListCurrencies {
 
 export interface IChildernProps {
   children: React.ReactNode;
+  className?: string;
 }
 
 export interface ISelectCurrencyListProps extends ICurrencyState {
@@ -68,6 +69,10 @@ export interface ICurrencyState {
 export interface IConverterSelectProps {
   currency: string;
   setCurrency: Function;
+  currenciesNames: AllCurrencies;
+}
+
+export interface IConverterBlockProps {
   currenciesNames: AllCurrencies;
 }
 
