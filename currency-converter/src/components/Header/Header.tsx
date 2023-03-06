@@ -21,15 +21,11 @@ function Header() {
             Currency converter
           </Typography>
           <Box maxWidth="sm" className={styles.navigation__wrapper}>
-            <Link
-              href="#123"
-              variant="body1"
-              className={styles.navigation__btns}
-            >
+            <Link href="/" variant="body1" className={styles.navigation__btns}>
               Exchange rates
             </Link>
             <Link
-              href="#123"
+              href="/convert"
               variant="body1"
               className={styles.navigation__btns}
             >
