@@ -45,7 +45,7 @@ function ConverterBlock(props: IConverterBlockProps) {
       </Col>
       <Col className={styles.input__wrapper}>
         <ConverterText className={styles.text__center}>
-          Exchange Rate
+          Exchange Rate:
         </ConverterText>
         <ConverterText className={styles.text__center}>
           {resultRate}

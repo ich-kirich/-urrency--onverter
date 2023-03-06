@@ -1,8 +1,32 @@
-import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Box,
+  Container,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 import styles from "./Header.module.scss";
+import LinksMenu from "../LinkMenu/LinksMenu";
 
 function Header() {
+  const [popupOpen, setPopupOpen] = useState(false);
+  const isMobileScreen = useMediaQuery("(max-width:600px)");
+
+  const togglePopup = () => {
+    setPopupOpen(!popupOpen);
+  };
+
+  const drawerPopup = () => (
+    <Box maxWidth="sm" className={styles.popup__wrapper}>
+      <LinksMenu />
+    </Box>
+  );
+
   return (
     <AppBar className={styles.topBar}>
       <Container maxWidth="lg">
@@ -14,14 +38,25 @@ function Header() {
           >
             Currency converter
           </Typography>
-          <Box maxWidth="sm" className={styles.navigation__wrapper}>
-            <Link to="/" className={styles.navigation__btns}>
-              Exchange rates
-            </Link>
-            <Link to="/convert" className={styles.navigation__btns}>
-              Convert Currency
-            </Link>
-          </Box>
+          {isMobileScreen ? (
+            <>
+              <IconButton
+                edge="end"
+                color="inherit"
+                aria-label="menu"
+                onClick={togglePopup}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer anchor="top" open={popupOpen} onClose={togglePopup}>
+                {drawerPopup()}
+              </Drawer>
+            </>
+          ) : (
+            <Box maxWidth="sm" className={styles.navigation__wrapper}>
+              <LinksMenu />
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
