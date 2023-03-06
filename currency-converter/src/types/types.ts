@@ -65,6 +65,17 @@ export interface ICurrencyState {
   listCurrency?: ICurrency[];
 }
 
+export interface IConverterSelectProps {
+  currency: string;
+  setCurrency: Function;
+  currenciesNames: AllCurrencies;
+}
+
+export interface IConvertButtonProps extends IMoney {
+  currencyFrom: string;
+  currencyTo: string;
+}
+
 export type Rates = {
   date: string;
 } & CurrencyRates;

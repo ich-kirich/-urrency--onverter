@@ -1,0 +1,30 @@
+.currency__selector {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(66, 165, 245);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.input__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.currency__text {
+  color: #fff;
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+
+.text__center {
+  align-self: center;
+}

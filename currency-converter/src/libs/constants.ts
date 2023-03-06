@@ -5,6 +5,8 @@ export const SHORT_NAME_PROPERTY = "shortName";
 export const FAVOURITE_PROPERTY = "favourite";
 export const KEY_FAVOURITES = "favouriteCurrencies";
 export const KEY_BASE = "baseCurrency";
+export const DEFAULT_EUR = "eur";
+export const DEFAULT_USD = "usd";
 export const DEFAULT_CURRENCY_LIST = [
   {
     shortName: "egp",
