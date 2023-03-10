@@ -8,8 +8,11 @@ import styles from "./AddListCurrency.module.scss";
 function AddListCurrency(props: IListCurrencies) {
   const { listCurrencies, setListCurrency } = props;
   const { currenciesAllNames } = useContext(CONTEXT);
+  const listSetCurrencies = new Set(
+    listCurrencies.map((item) => item.shortName),
+  );
   const currenciesNames = Object.keys(currenciesAllNames).filter(
-    (item) => !listCurrencies.find((elem) => elem.shortName === item),
+    (item) => !listSetCurrencies.has(item),
   );
 
   function addToList(nameCurrency: string) {
