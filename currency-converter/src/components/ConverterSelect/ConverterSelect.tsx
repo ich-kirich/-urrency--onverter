@@ -3,8 +3,8 @@ import { IConverterSelectProps } from "../../types/types";
 import styles from "./ConverterSelect.module.scss";
 
 function ConverterSelect(props: IConverterSelectProps) {
-  const { Option } = Select;
   const { currenciesNames, currency, setCurrency } = props;
+  const { Option } = Select;
   const chooseCurrency = (item: string) => {
     setCurrency(item);
   };

@@ -12,10 +12,9 @@ export function saveToLocalStorageFavourites(listCurrencies: ICurrency[]) {
 }
 
 export function loadFavouriteCurrencies() {
-  if (localStorage.getItem(KEY_FAVOURITES)) {
-    const favouriteList: ICurrency[] = JSON.parse(
-      localStorage.getItem(KEY_FAVOURITES)!,
-    );
+  const loadCurrencies = localStorage.getItem(KEY_FAVOURITES);
+  if (loadCurrencies) {
+    const favouriteList: ICurrency[] = JSON.parse(loadCurrencies);
     if (favouriteList.length > 0) {
       return favouriteList;
     }
@@ -25,8 +24,9 @@ export function loadFavouriteCurrencies() {
 }
 
 export function loadBaseCurrency() {
-  if (localStorage.getItem(KEY_BASE)) {
-    return JSON.parse(localStorage.getItem(KEY_BASE)!);
+  const loadCurrency = localStorage.getItem(KEY_BASE);
+  if (loadCurrency) {
+    return JSON.parse(loadCurrency);
   }
   return DEFAULT_BASE_CURRENCY;
 }

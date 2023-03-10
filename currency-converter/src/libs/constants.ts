@@ -1,6 +1,8 @@
 import React from "react";
 import { IContextCurrency } from "../types/types";
 
+export const BASE_URL =
+  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest";
 export const SHORT_NAME_PROPERTY = "shortName";
 export const FAVOURITE_PROPERTY = "favourite";
 export const KEY_FAVOURITES = "favouriteCurrencies";

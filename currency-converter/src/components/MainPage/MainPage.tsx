@@ -2,12 +2,8 @@ import { Box } from "@mui/material";
 import { useState, useEffect, useMemo } from "react";
 import { getAllCurrencies, getRateCurrency } from "../../API/PostService";
 import useFetching from "../../hooks/useFetching";
-import { AllCurrencies, Rates } from "../../types/types";
-import {
-  CONTEXT,
-  DEFAULT_BASE_CURRENCY,
-  FAVOURITE_PROPERTY,
-} from "../../libs/constants";
+import { AllCurrencies, ICurrency, IRates } from "../../types/types";
+import { CONTEXT, FAVOURITE_PROPERTY } from "../../libs/constants";
 import Loader from "../Loader/Loader";
 import ViewError from "../ViewError/ViewError";
 import CurrencyBlock from "../CurrencyBlock/CurrencyBlock";
@@ -15,11 +11,13 @@ import { useSortedCurrencies } from "../../hooks/useCurrencies";
 import { loadBaseCurrency, loadFavouriteCurrencies } from "../../libs/currency";
 
 function MainPage() {
-  const [currenciesNames, setCurrenciesNames] = useState({} as AllCurrencies);
-  const [baseCurrencyRates, setBaseCurrencyRates] = useState({} as Rates);
-  const [baseCurrency, setBaseCurrency] = useState(loadBaseCurrency());
+  const [currenciesNames, setCurrenciesNames] = useState<AllCurrencies>({});
+  const [baseCurrencyRates, setBaseCurrencyRates] = useState<IRates>({});
+  const [baseCurrency, setBaseCurrency] = useState<ICurrency>(
+    loadBaseCurrency(),
+  );
   const [amountMoney, setAmountMoney] = useState("");
-  const [listCurrencies, setListCurrencies] = useState(
+  const [listCurrencies, setListCurrencies] = useState<ICurrency[]>(
     loadFavouriteCurrencies(),
   );
   const sortedListCurrencies = useSortedCurrencies(

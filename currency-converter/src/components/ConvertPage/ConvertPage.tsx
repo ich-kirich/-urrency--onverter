@@ -8,7 +8,7 @@ import Loader from "../Loader/Loader";
 import ViewError from "../ViewError/ViewError";
 
 function ConvertPage() {
-  const [currenciesNames, setCurrenciesNames] = useState({} as AllCurrencies);
+  const [currenciesNames, setCurrenciesNames] = useState<AllCurrencies>({});
 
   const [fetchCurrencies, isAllCurrLoading, isErrorAllCurr] = useFetching(
     async () => {

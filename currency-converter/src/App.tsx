@@ -1,8 +1,8 @@
 import { Container, StyledEngineProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
-import "./styles/index.scss";
 import "./styles/normalize.css";
+import "./styles/index.scss";
 import AppRouter from "./components/AppRouter/AppRouter";
 
 function App() {

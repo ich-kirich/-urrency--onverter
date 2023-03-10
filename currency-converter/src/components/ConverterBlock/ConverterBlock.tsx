@@ -8,12 +8,12 @@ import ConverterText from "../ConverterText/ConverterText";
 import styles from "./ConverterBlock.module.scss";
 
 function ConverterBlock(props: IConverterBlockProps) {
+  const { currenciesNames } = props;
   const [currencyFrom, setCurrencyFrom] = useState(DEFAULT_USD);
   const [currencyTo, setCurrencyTo] = useState(DEFAULT_EUR);
   const [value, setValue] = useState("");
   const [money, setMoney] = useState("");
   const [resultRate, setResultRate] = useState("");
-  const { currenciesNames } = props;
   return (
     <Row className={styles.currency__selector} gutter={[16, 16]}>
       <Col className={styles.input__wrapper}>

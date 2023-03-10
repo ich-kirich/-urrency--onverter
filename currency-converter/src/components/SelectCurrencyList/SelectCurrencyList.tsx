@@ -6,9 +6,9 @@ import { CONTEXT, SHORT_NAME_PROPERTY } from "../../libs/constants";
 import styles from "./SelectCurrencyList.module.scss";
 
 function SelectCurrencyList(props: ISelectCurrencyListProps) {
-  const { currenciesAllNames } = useContext(CONTEXT);
   const { chooseCurrency, currencyValue, setCurrencyValue, listCurrency } =
     props;
+  const { currenciesAllNames } = useContext(CONTEXT);
 
   const changeCurrency = (value: string) => {
     if (listCurrency) {

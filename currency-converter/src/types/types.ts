@@ -29,7 +29,7 @@ export interface ICurrencyProps extends IListCurrencies {
 }
 
 export interface ICurrencyBlockProps extends IBaseCurrencyProps {
-  baseCurrencyRates: Rates;
+  baseCurrencyRates: IRates;
 }
 
 export interface IBaseCurrencyProps {
@@ -46,7 +46,7 @@ export interface IMoneyFieldCurrencyProps extends ICurrencyState {
 }
 
 export interface ICurrencyListProps {
-  baseCurrencyRates: Rates;
+  baseCurrencyRates: IRates;
   baseCurrency: ICurrency;
 }
 
@@ -81,8 +81,6 @@ export interface IConvertButtonProps extends IMoney {
   currencyTo: string;
 }
 
-export type Rates = {
-  date: string;
-} & CurrencyRates;
-
-type CurrencyRates = Record<string, Record<string, number>>;
+export interface IRates {
+  [currency: string]: Record<string, number> & { date: string };
+}
