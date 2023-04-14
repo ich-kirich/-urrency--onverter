@@ -1,0 +1,18 @@
+.topBar {
+  position: static;
+}
+
+.topBar__logo {
+  flex-grow: 1;
+}
+
+.navigation__wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.popup__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #1976d2;
+}
